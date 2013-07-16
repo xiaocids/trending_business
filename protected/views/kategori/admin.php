@@ -1,0 +1,70 @@
+<?php
+/*$this->breadcrumbs=array(
+	'Kategori Models'=>array('index'),
+	'Manage',
+);*/
+$this->widget('bootstrap.widgets.TbAlert', array('block' => true,
+    // display a larger alert block?
+        'fade' => true, // use transitions?
+        'closeText' => '&times;', // close link text - if set to false, no close link is displayed
+        //'alerts' => array( // configurations per alert type
+            //'success' => array('block' => true, 'fade' => true, 'closeText' => '$times'),
+            // success, info, warning, error or danger
+        //), 
+    ));
+            
+$this->menu=array(
+array('label'=>'List Kategori_model','url'=>array('index')),
+array('label'=>'Create Kategori_model','url'=>array('create')),
+);
+
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+$('.search-form').toggle();
+return false;
+});
+$('.search-form form').submit(function(){
+$.fn.yiiGridView.update('kategori-model-grid', {
+data: $(this).serialize()
+});
+return false;
+});
+");
+?>
+
+<h1>Master Kategori</h1>
+
+<div class="well">
+    <?php echo CHtml::link('<i class="icon icon-plus icon-white"></i> Tambah Kategori',array('/kategori/create'),array('class'=>'btn btn-primary')); ?>
+    <div class="search-form" style="display:none">
+    	<?php $this->renderPartial('_search',array(
+    	'model'=>$model,
+    )); ?>
+
+</div>
+</div><!-- search-form -->
+
+<?php $this->widget('bootstrap.widgets.TbGridView',array(
+'id'=>'kategori-model-grid',
+'itemsCssClass'=>'table table-hover table-striped table-bordered table-condensed',
+'dataProvider'=>$model->search(),
+'filter'=>$model,
+'columns'=>array(
+        array(
+            'header'=>'No',
+            'type'=>'raw',
+            'value'=>'$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1',
+        ),
+		//'kategori_id',
+		'nama_kategori',
+		array(
+            'header'=>'Kategori Aktif',
+            'filter'=> CHtml::activeDropDownList($model,'kategori_aktif', array(true=>'Aktif', false=>'Tidak Aktif'), array('class'=>'', 'prompt'=>'-Pilih')),
+            'value'=>'Params::aktifNonAktif($data->kategori_aktif)',
+        ),
+		'create_time',
+array(
+'class'=>'bootstrap.widgets.TbButtonColumn',
+),
+),
+)); ?>
