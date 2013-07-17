@@ -23,7 +23,7 @@ return false;
 ");
 ?>
 
-<h1>Data Tweet</h1>
+<h1>Data Tweet Mentah</h1>
 
 <div class="well">
     <?php echo CHtml::link('<i class="icon icon-retweet icon-white"></i> Mulai Crawler',array('/crawler/indexCrawler'),array('class'=>'btn btn-primary')); ?>
@@ -40,7 +40,11 @@ return false;
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
-		'tweet_id',
+		array(
+            'header'=>'No',
+            'type'=>'raw',
+            'value'=>'$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1',
+        ),
 		'idstr',
 		'screen_name',
 		'text_mentah',

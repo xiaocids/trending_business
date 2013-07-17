@@ -9,7 +9,7 @@
 			/*'type'=>'list',*/
 			'encodeLabel'=>false,
 			'items'=>array(
-				array('label'=>'<i class="icon icon-home icon-white"></i>  Dashboard <span class="label label-success pull-right">BETA</span>', 'url'=>array('/site/index'),'itemOptions'=>array('class'=>'')),
+				array('label'=>'<i class="icon icon-home icon-white"></i>  Dashboard <span class="label label-success pull-right">BETA</span>', 'url'=>array('/site/dashboard'),'itemOptions'=>array('class'=>'')),
 				//array('label'=>'<i class="icon icon-search icon-white"></i> About this application', 'url'=>'/site/about'),
 				//array('label'=>'<i class="icon icon-envelope icon-white"></i> Messages <span class="badge badge-success pull-right">12</span>', 'url'=>'#'),
 				// Include the operations menu

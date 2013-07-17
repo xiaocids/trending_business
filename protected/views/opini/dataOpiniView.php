@@ -45,7 +45,11 @@ return false;
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
-		'opini_id',
+		array(
+            'header'=>'No',
+            'type'=>'raw',
+            'value'=>'$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1',
+        ),
 		'tweet_id',
 		'idstr',
 		'screen_name',

@@ -272,7 +272,7 @@ class CrawlerController extends Controller
           'GET',
           'https://stream.twitter.com/1.1/statuses/filter.json',
           array('track'=>'bandung'),
-          'my_streaming_callback'
+          array($this,'my_streaming_callback')
         );
         
         $oAuth->render_response();

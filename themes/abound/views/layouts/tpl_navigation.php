@@ -17,7 +17,7 @@
 					'itemCssClass'=>'item-test',
                     'encodeLabel'=>false,
                     'items'=>array(
-                        array('label'=>'Dashboard', 'url'=>array('/crawler/admin')),
+                        //array('label'=>'Dashboard', 'url'=>array('/crawler/admin')),
                         //array('label'=>'Graphs & Charts', 'url'=>array('/site/page', 'view'=>'graphs')),
                         /*array('label'=>'Forms', 'url'=>array('/site/page', 'view'=>'forms')),
                         array('label'=>'Tables', 'url'=>array('/site/page', 'view'=>'tables')),
@@ -25,14 +25,19 @@
                         array('label'=>'Typography', 'url'=>array('/site/page', 'view'=>'typography')),
                         array('label'=>'Gii generated', 'url'=>array('customer/index')),*/
                         array('label'=>'Histori Crawler', 'url'=>array('/crawler/admin')),
-                        array('label'=>'Data Tweet', 'url'=>array('/tweet/admin')),
-                        array('label'=>'Data Opini', 'url'=>array('/opini/admin')),
-                        array('label'=>'Data Trending', 'url'=>array('/trending/admin')),
+                        array('label'=>'Data Tweet <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
+                        'items'=>array(
+                            array('label'=>'Tweet Mentah', 'url'=>array('/tweet/dataTweetMentah')),
+							array('label'=>'Tweet Bersih', 'url'=>array('/tweet/dataTweetBersih')),
+                        )),
+                        array('label'=>'Data Opini', 'url'=>array('/opini/dataOpini')),
+                        array('label'=>'Data Trending', 'url'=>array('/trending/datatTrending')),
                         array('label'=>'Pengaturan <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
                         'items'=>array(
                             array('label'=>'Crawler', 'url'=>array('/pengaturan/admin')),
 							array('label'=>'Master Kota', 'url'=>array('/kota/admin')),
 							array('label'=>'Master Kategori', 'url'=>array('kategori/admin')),
+                            array('label'=>'Import Data', 'url'=>Yii::app()->createUrl('importcsv/default/index'))
                         )),
                         array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),

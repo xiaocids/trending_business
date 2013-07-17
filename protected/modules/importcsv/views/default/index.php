@@ -8,10 +8,11 @@
  * module form
  */
 
-$this->breadcrumbs=array(
+/*$this->breadcrumbs=array(
 	Yii::t('importcsvModule.importcsv', 'Import')." CSV",
-);
+);*/
 ?>
+<h1>Import Data</h1>
 <div id="importCsvSteps">
     <h1><?php echo Yii::t('importcsvModule.importcsv', 'Import'); ?> CSV</h1>
 
