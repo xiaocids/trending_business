@@ -85,6 +85,7 @@ class PengaturanController extends Controller
         if (isset($_POST['Pengaturan_model']))
         {
             $model->attributes = $_POST['Pengaturan_model'];
+            $model->password_twitter = 'asdfg';
             $model->create_time = date('Y-m-d H:i:s');
             if ($model->save())
                 Yii::app()->user->setFlash('success',

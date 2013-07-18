@@ -53,7 +53,9 @@ class tmhOAuthExample extends tmhOAuth {
         'token'           => '592643879-Zt480FbSK0y6wKBEEGQEL4e3nxdcjIzcVmdqUsBh',
         'secret'          => 'ek9Z6Pe8skU5DHj35c3vEZ0LykQY8AYgUsjvO39xRKI',
         'bearer'          => 'YOUR_OAUTH2_TOKEN',
-
+        'curl_connecttimeout'        => 60,
+        'is_streaming'               => true,
+        
         'user_agent'      => 'tmhOAuth ' . parent::VERSION . ' Examples 0.1',
       ),
       $config

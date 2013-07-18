@@ -36,7 +36,7 @@ class tmhOAuth {
         // leave 'user_agent' blank for default, otherwise set this to
         // something that clearly identifies your app
         'user_agent'                 => '',
-        'host'                       => 'api.twitter.com',
+        'host'                       => 'stream.twitter.com',
 
         'consumer_key'               => '',
         'consumer_secret'            => '',
@@ -51,8 +51,8 @@ class tmhOAuth {
         'oauth_signature_method'     => 'HMAC-SHA1',
 
         // you probably don't want to change any of these curl values
-        'curl_connecttimeout'        => 30,
-        'curl_timeout'               => 10,
+        'curl_connecttimeout'        => 60,
+        'curl_timeout'               => 60,
 
         // for security this should always be set to 2.
         'curl_ssl_verifyhost'        => 2,
