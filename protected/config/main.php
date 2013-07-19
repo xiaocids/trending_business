@@ -72,10 +72,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=trending_ta',
+			'connectionString' => 'mysql:host=localhost;dbname=k3325980_trendta',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'k3325980_ta',
+			'password' => 'SandKing123',
 			'charset' => 'utf8',
 		),
 		
