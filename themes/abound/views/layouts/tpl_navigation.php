@@ -24,7 +24,7 @@
 						array('label'=>'Interface', 'url'=>array('/site/page', 'view'=>'interface')),
                         array('label'=>'Typography', 'url'=>array('/site/page', 'view'=>'typography')),
                         array('label'=>'Gii generated', 'url'=>array('customer/index')),*/
-                        array('label'=>'Histori Crawler', 'url'=>array('/crawler/admin')),
+                        array('label'=>'Histori Crawler', 'url'=>array('/crawler/historiCrawler')),
                         array('label'=>'Data Tweet <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
                         'items'=>array(
                             array('label'=>'Tweet Mentah', 'url'=>array('/tweet/dataTweetMentah')),

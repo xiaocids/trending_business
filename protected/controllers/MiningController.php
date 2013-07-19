@@ -103,7 +103,7 @@ class MiningController extends Controller
                 endforeach;*/
                 $TwOriRoot = implode(' ', $isTokenise);
                 
-                Tweet_model::model()->updateByPk($tweet->tweet_id, array('hasil_proses1'=>$TwOriRoot));
+                Tweet_model::model()->updateByPk($tweet->tweet_id, array('hasil_proses1'=>$TwOriRoot, 'label'=>'bersih'));
                 // Akhir Ekstraksi Model TwRoot
                 //$this->simpan_tweet($tweet, $TwOriRoot, 'TwOriRoot', 'preproses');
                 //echo 'Clean :' . implode(' ', $isTokenise) . $tweet->tweet_id.'<br>';

@@ -51,7 +51,7 @@ return false;
 		'waktu_mulai',
 		'waktu_berhenti',
         array(
-            'header'=>'Crawler Aktif',
+            'header'=>'Status',
             'filter'=> CHtml::activeDropDownList($model,'crawler_aktif', array(true=>'Aktif', false=>'Tidak Aktif'), array('class'=>'', 'prompt'=>'-Pilih')),
             'value'=>'Params::aktifNonAktif($data->crawler_aktif)',
         ),		

@@ -50,11 +50,18 @@ return false;
             'type'=>'raw',
             'value'=>'$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1',
         ),
-		'tweet_id',
 		'idstr',
 		'screen_name',
 		'text',
-		'label',
+        array(
+            'header'=>'Kategori',
+            'filter'=> CHtml::activeDropDownList($model,'kategori_id', CHtml::listData(Kategori_model::model()->findAllByAttributes(array('kategori_aktif'=>true)),'kategori_id', 'nama_kategori'), array('class'=>'', 'prompt'=>'-Pilih')),
+            'value'=>'$data->kategori->nama_kategori',
+        ),
+		array(
+            'header'=>'Kelas',
+            'name'=>'label',
+        ),
 		/*
 		'skor',
 		'kategori_id',

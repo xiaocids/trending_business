@@ -16,7 +16,7 @@
 				array('label'=>'<strong>CRAWLER</strong>','items'=>array(
                     array('label'=>'<i class="icon icon-retweet icon-white"></i> Mulai Crawler', 'url'=>array('/crawler/indexCrawler')),
                     array('label'=>'<i class="icon icon-comment icon-white"></i> Data Tweet Mentah', 'url'=>array('/tweet/dataTweetMentah')),
-                    array('label'=>'<i class="icon icon-list-alt icon-white"></i> Histori Crawler', 'url'=>array('/crawler/admin')),
+                    array('label'=>'<i class="icon icon-list-alt icon-white"></i> Histori Crawler', 'url'=>array('/crawler/historiCrawler')),
                 )),
                 
                 array('label'=>'<strong>MINING</strong>','items'=>array(

@@ -69,7 +69,7 @@ class Crawler_model extends CActiveRecord
 			'waktu_mulai' => 'Waktu Mulai',
 			'waktu_berhenti' => 'Waktu Berhenti',
 			'nama_akun_twitter' => 'Nama Akun Twitter',
-			'crawler_aktif' => 'Crawler Aktif',
+			'crawler_aktif' => 'Status',
 			'create_time' => 'Create Time',
 		);
 	}
