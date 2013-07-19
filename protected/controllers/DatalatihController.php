@@ -1,6 +1,6 @@
 <?php
 
-class PengaturanController extends Controller
+class DatalatihController extends Controller
 {
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -28,8 +28,8 @@ class PengaturanController extends Controller
             // allow all users to perform 'index' and 'view' actions
             'actions' => array('index', 'view'), 'users' => array('*'), ), array('allow',
             // allow authenticated user to perform 'create' and 'update' actions
-            'actions' => array('create', 'update', 'pengaturanCrawler'), 'users' => array('@'), ),
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            'actions' => array('create', 'update'), 'users' => array('@'), ), array('allow',
+            // allow admin user to perform 'admin' and 'delete' actions
             'actions' => array('admin', 'delete'), 'users' => array('admin'), ), array('deny',
             // deny all users
             'users' => array('*'), ), );
@@ -50,50 +50,19 @@ class PengaturanController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Pengaturan_model;
+        $model = new Datalatih_model;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Pengaturan_model']))
+        if (isset($_POST['Datalatih_model']))
         {
-            $model->attributes = $_POST['Pengaturan_model'];
-            $model->create_time = date('Y-m-d');
+            $model->attributes = $_POST['Datalatih_model'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->pengaturan_id));
+                $this->redirect(array('view', 'id' => $model->datalatih_id));
         }
 
         $this->render('create', array('model' => $model, ));
-    }
-
-    public function actionPengaturanCrawler()
-    {
-        $this->pageTItle = 'Pengaturan Crawler';
-        $model = Pengaturan_model::model()->findByAttributes(array('pengaturan_aktif' => true));
-        if (count($model) != 0)
-        {
-            $model->isNewRecord = false;
-        } else
-        {
-            $model = new Pengaturan_model;
-        }
-        //$model = Pengaturan_model::model()->find('pengaturan_aktif = TRUE');
-
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
-        if (isset($_POST['Pengaturan_model']))
-        {
-            $model->attributes = $_POST['Pengaturan_model'];
-            $model->password_twitter = 'asdfg';
-            $model->create_time = date('Y-m-d H:i:s');
-            if ($model->save())
-                Yii::app()->user->setFlash('success',
-                    '<strong>Sukses!</strong> Data berhasil disimpan.');
-            //$this->redirect(array('pengaturan_crawler'));
-        }
-
-        $this->render('pengaturan_crawler', array('model' => $model, ));
     }
 
     /**
@@ -108,11 +77,11 @@ class PengaturanController extends Controller
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Pengaturan_model']))
+        if (isset($_POST['Datalatih_model']))
         {
-            $model->attributes = $_POST['Pengaturan_model'];
+            $model->attributes = $_POST['Datalatih_model'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->pengaturan_id));
+                $this->redirect(array('view', 'id' => $model->datalatih_id));
         }
 
         $this->render('update', array('model' => $model, ));
@@ -143,7 +112,7 @@ class PengaturanController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new CActiveDataProvider('Pengaturan_model');
+        $dataProvider = new CActiveDataProvider('Datalatih_model');
         $this->render('index', array('dataProvider' => $dataProvider, ));
     }
 
@@ -152,10 +121,10 @@ class PengaturanController extends Controller
      */
     public function actionAdmin()
     {
-        $model = new Pengaturan_model('search');
+        $model = new Datalatih_model('search');
         $model->unsetAttributes(); // clear any default values
-        if (isset($_GET['Pengaturan_model']))
-            $model->attributes = $_GET['Pengaturan_model'];
+        if (isset($_GET['Datalatih_model']))
+            $model->attributes = $_GET['Datalatih_model'];
 
         $this->render('admin', array('model' => $model, ));
     }
@@ -167,7 +136,7 @@ class PengaturanController extends Controller
      */
     public function loadModel($id)
     {
-        $model = Pengaturan_model::model()->findByPk($id);
+        $model = Datalatih_model::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
@@ -179,7 +148,7 @@ class PengaturanController extends Controller
      */
     protected function performAjaxValidation($model)
     {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'pengaturan-model-form')
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'datalatih-model-form')
         {
             echo CActiveForm::validate($model);
             Yii::app()->end();

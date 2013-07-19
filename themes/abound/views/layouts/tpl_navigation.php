@@ -34,7 +34,7 @@
                         array('label'=>'Data Trending', 'url'=>array('/trending/datatTrending')),
                         array('label'=>'Pengaturan <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
                         'items'=>array(
-                            array('label'=>'Crawler', 'url'=>array('/pengaturan/admin')),
+                            array('label'=>'Crawler', 'url'=>array('/pengaturan/pengaturanCrawler')),
 							array('label'=>'Master Kota', 'url'=>array('/kota/admin')),
 							array('label'=>'Master Kategori', 'url'=>array('kategori/admin')),
                             array('label'=>'Import Data', 'url'=>Yii::app()->createUrl('importcsv/default/index'))

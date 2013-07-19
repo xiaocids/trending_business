@@ -34,7 +34,9 @@
                 array('label'=>'<strong>PENGATURAN</strong>','items'=>array(
                     array('label'=>'<i class="icon icon-folder-open icon-white"></i> Master Kota', 'url'=>array('/kota/admin')),
                     array('label'=>'<i class="icon icon-folder-open icon-white"></i> Master Kategori', 'url'=>array('/kategori/admin')),
-                    array('label'=>'<i class="icon icon-wrench icon-white"></i> Pengaturan Crawler', 'url'=>array('/pengaturan/pengaturan_crawler')),
+                    array('label'=>'<i class="icon icon-folder-open icon-white"></i> Data Latih', 'url'=>array('/datalatih/admin')),
+                    array('label'=>'<i class="icon icon-wrench icon-white"></i> Pengaturan Crawler', 'url'=>array('/pengaturan/pengaturanCrawler')),
+                    array('label'=>'<i class="icon icon-folder-close icon-white"></i> Import Data', 'url'=>Yii::app()->createUrl('importcsv/default/index')),
                 )),
 			),
 			));?>

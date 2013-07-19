@@ -1,14 +1,14 @@
 <?php
                 $paramsArray = array(
-                    "table"=>"opini",
+                    "table"=>"data_latih",
                     "delimiter"=>",",
 		    "textDelimiter"=>"\"",
                     "mode"=>1,
                     "perRequest"=>10,
                     "csvKey"=>"1",
-                    "tableKey"=>"idstr",
+                    "tableKey"=>"datalatih_id",
                     "columns"=>array(
-                        "opini_id"=>1, "tweet_id"=>"", "idstr"=>"", "screen_name"=>"", "text"=>"", "label"=>2, "skor"=>"", "kategori_id"=>"", "kota_id"=>"", "location"=>"", "longitude"=>"", "latitude"=>"", "created_at"=>"", "create_time"=>"", 
+                        "datalatih_id"=>1, "teks"=>2, "kelas"=>3, 
                     ),
                 );
             ?>

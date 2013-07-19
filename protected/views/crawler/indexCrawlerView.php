@@ -46,7 +46,7 @@
                         loader.attr('src', loader_off);
                         $('button').html('Mulai');
                         $('button').removeClass('disabled');
-                        alert( "Crawler Selesai pada: "+msg+'!');                        
+                        alert( "Crawler Selesai!");                        
                      }
                 });
          

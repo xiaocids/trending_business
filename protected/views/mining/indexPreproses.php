@@ -38,7 +38,7 @@
                 
                 $.ajax({
                      type: "POST",
-                     url: "<?php echo Yii::app()->createUrl('/crawler/mulai'); ?>",
+                     url: "<?php echo Yii::app()->createUrl('/mining/preprosesDataTwitter'); ?>",
                      //data: postData , //assign the var here 
                      success: function(msg){
                         loader.removeClass('loader_on');
@@ -46,7 +46,7 @@
                         loader.attr('src', loader_off);
                         $('button').html('Mulai');
                         $('button').removeClass('disabled');
-                        alert( "Crawler Selesai pada: "+msg+'!');                        
+                        alert( "Pre Proses Data Selesai pada: "+msg+'!');                        
                      }
                 });
          

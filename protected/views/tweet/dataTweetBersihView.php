@@ -45,11 +45,25 @@ return false;
             'type'=>'raw',
             'value'=>'$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1',
         ),
-		'idstr',
-		'screen_name',
-		'text_mentah',
-		'hasil_proses1',
-		'hasil_proses2',
+		array(
+            'type'=>'raw',
+            'name'=>'idstr',
+            'value'=>'CHtml::link($data->idstr,"https://twitter.com/".$data->screen_name."/statuses/".$data->idstr, array("target"=>"_blank"))',
+        ),
+		array(
+            'name'=>'screen_name',
+            'type'=>'raw',
+            'value'=>'CHtml::link("@".$data->screen_name, "https://twitter.com/".$data->screen_name, array("target"=>"_blank"))',
+        ),
+        array(
+            'header'=>'Tweet Mentah',
+            'name'=>'text_mentah',
+        ),
+		array(
+            'header'=>'Tweet Bersih',
+            'name'=>'hasil_proses1',
+        ),
+		'create_at',
 		/*
 		'hasil_proses3',
 		'label',

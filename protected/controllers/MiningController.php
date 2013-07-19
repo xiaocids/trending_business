@@ -28,7 +28,7 @@ class MiningController extends Controller
             // allow all users to perform 'index' and 'view' actions
             'actions' => array('index'), 'users' => array('*'), ), array('allow',
             // allow authenticated user to perform 'create' and 'update' actions
-            'actions' => array('indexPreproses'), 'users' => array('@'), ), array('allow',
+            'actions' => array('indexPreproses', 'preprosesDataTwitter'), 'users' => array('@'), ), array('allow',
             // allow admin user to perform 'admin' and 'delete' actions
             'actions' => array(), 'users' => array('admin'), ), array('deny',
             // deny all users
@@ -69,6 +69,51 @@ class MiningController extends Controller
         return $clean;
     }
     
+    // Fungsi preproses data twitter
+    public function actionPreprosesDataTwitter()
+    {
+        if (Yii::app()->request->isPostRequest){
+            $modelTweet = Tweet_model::model()->findAllByAttributes(array('label'=>'mentah'));
+            
+            foreach ($modelTweet as $i => $tweet):
+            
+                // Ekstraksi Model TwOri 
+                // Memanggil fungsi cleansing teks twitter
+                $twClean = $this->cleansing($tweet->text_mentah);
+                
+                //Akhir Ekstraksi Model TwOri
+                
+                // Tokenisasi
+                $isTokenise = $this->getTokens($twClean);
+                
+                // Ekstraksi Model TwRoot
+                // Penggabungan kata-kata jadi kalimat
+                /*foreach ($isTokenise as $i => $word):
+                
+                    // Stemming
+                    if($this->stemmer->stemming($word))
+                    {
+                        $root = $this->stemmer->stemming($word);
+                    }else{
+                        $root = '';
+                    }
+                    
+                    $isTokenise[$i] = trim($root);
+                                    
+                endforeach;*/
+                $TwOriRoot = implode(' ', $isTokenise);
+                
+                Tweet_model::model()->updateByPk($tweet->tweet_id, array('hasil_proses1'=>$TwOriRoot));
+                // Akhir Ekstraksi Model TwRoot
+                //$this->simpan_tweet($tweet, $TwOriRoot, 'TwOriRoot', 'preproses');
+                //echo 'Clean :' . implode(' ', $isTokenise) . $tweet->tweet_id.'<br>';
+                
+            endforeach;
+            echo CJSON::encode(date('d-m-Y H:i:s'));
+        }else
+            throw new CHttpException(400,
+                'Invalid request. Please do not repeat this request again.');
+    }
     
     //Method tokenisasi
     protected function getTokens($string)

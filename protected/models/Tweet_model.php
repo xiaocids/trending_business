@@ -81,8 +81,8 @@ class Tweet_model extends CActiveRecord
 			'tweet_id' => 'ID',
 			'idstr' => 'ID Str',
 			'screen_name' => 'Screen Name',
-			'text_mentah' => 'Text Mentah',
-			'hasil_proses1' => 'Hasil Proses1',
+			'text_mentah' => 'Teks',
+			'hasil_proses1' => 'Text',
 			'hasil_proses2' => 'Hasil Proses2',
 			'hasil_proses3' => 'Hasil Proses3',
 			'label' => 'Label',
@@ -141,7 +141,7 @@ class Tweet_model extends CActiveRecord
 		$criteria->compare('hasil_proses1',$this->hasil_proses1,true);
 		$criteria->compare('hasil_proses2',$this->hasil_proses2,true);
 		$criteria->compare('hasil_proses3',$this->hasil_proses3,true);
-		$criteria->compare('label','mentah',true);
+		$criteria->compare('label',$this->label,true);
 		$criteria->compare('location',$this->location,true);
 		$criteria->compare('longitude',$this->longitude);
 		$criteria->compare('latitude',$this->latitude);
@@ -168,7 +168,7 @@ class Tweet_model extends CActiveRecord
 		$criteria->compare('hasil_proses1',$this->hasil_proses1,true);
 		$criteria->compare('hasil_proses2',$this->hasil_proses2,true);
 		$criteria->compare('hasil_proses3',$this->hasil_proses3,true);
-		$criteria->compare('label','bersih',true);
+		$criteria->compare('label',$this->label,true);
 		$criteria->compare('location',$this->location,true);
 		$criteria->compare('longitude',$this->longitude);
 		$criteria->compare('latitude',$this->latitude);

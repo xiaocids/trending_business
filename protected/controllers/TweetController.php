@@ -161,6 +161,7 @@ class TweetController extends Controller
         $model->unsetAttributes(); // clear any default values
         if (isset($_GET['Tweet_model']))
             $model->attributes = $_GET['Tweet_model'];
+            $model->label = 'mentah';
 
         $this->render('dataTweetMentahView', array('model' => $model, ));
     }
@@ -171,6 +172,7 @@ class TweetController extends Controller
         $model->unsetAttributes(); // clear any default values
         if (isset($_GET['Tweet_model']))
             $model->attributes = $_GET['Tweet_model'];
+            $model->hasil_proses1 != '';
 
         $this->render('dataTweetBersihView', array('model' => $model, ));
     }
