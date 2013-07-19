@@ -194,7 +194,7 @@ class CrawlerController extends Controller
                             'token'           => $modelPengaturan->access_token,
                             'secret'          => $modelPengaturan->access_token_secret,
                             'curl_timeout'    => $modelPengaturan->limit_crawler,
-                            'is_streaming'    => true,
+                            'is_streaming'    => false,
                         );
                 
                 // Object ckoneksi socket menggunakan tmhOAuth

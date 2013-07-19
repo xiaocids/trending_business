@@ -38,7 +38,7 @@
                 
                 $.ajax({
                      type: "POST",
-                     url: "<?php echo Yii::app()->createUrl('/crawler/mulai'); ?>",
+                     url: "<?php echo Yii::app()->createUrl('/mining/klasifikasiKategoriBisnis'); ?>",
                      //data: postData , //assign the var here 
                      success: function(msg){
                         loader.removeClass('loader_on');

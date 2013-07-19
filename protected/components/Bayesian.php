@@ -7,13 +7,36 @@
 
 class Bayesian {
         private $index = array();
-        private $classes = array('pos', 'neg');
-        private $classTokCounts = array('pos' => 0, 'neg' => 0);
-        private $tokCount = 0;
-        private $classDocCounts = array('pos' => 0, 'neg' => 0);
-        private $docCount = 0;
-        private $prior = array('pos' => 0.5, 'neg' => 0.5);
+        private $classes;
+        private $classTokCounts;
+        private $tokCount;
+        private $classDocCounts;
+        private $docCount;
+        private $prior;
+        private $config;
 
+       
+        public function __construct($config = array()){
+            $this->config = array_merge(
+                array(
+                    'classes' =>  array('pos', 'neg'),
+                    'classTokCounts' => array('pos' => 0, 'neg' => 0),
+                    'tokCount'=>0,
+                    'classDocCounts' => array('pos' => 0, 'neg' => 0),
+                    'docCount'=>0,
+                    'prior' => array('pos' => 0.5, 'neg' => 0.5),
+                ),
+                $config
+            );
+            
+            $this->classes = $this->config['classes'];
+            $this->classTokCounts = $this->config['classTokCounts'];
+            $this->tokCount = $this->config['tokCount'];
+            $this->classDocCounts = $this->config['classDocCounts'];
+            $this->docCount = $this->config['docCount'];
+            $this->prior = $this->config['prior'];
+        }
+        
         public function addToIndex($file, $class, $limit = 0) {
                 $fh = fopen($file, 'r');
                 $i = 0;

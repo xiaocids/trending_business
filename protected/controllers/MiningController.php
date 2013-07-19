@@ -1,5 +1,5 @@
 <?php
-
+Yii::import("application.components.Bayesian", true);
 class MiningController extends Controller
 {
     /**
@@ -53,6 +53,46 @@ class MiningController extends Controller
     public function actionIndexKlasifikasiPolaritas()
     {
         $this->render('indexKlasifikasiPolaritas');
+    }
+    
+    public function actionKlasifikasiKategoriBisnis()
+    {
+        if(Yii::app()->request->isPostRequest)
+        {
+            // konfigurasi klasifier bayes
+            $config = array(
+                    'classes' =>  array('makanan', 'travel'),
+                    'classTokCounts' => array('makanan' => 0, 'travel' => 0),
+                    'tokCount'=>0,
+                    'classDocCounts' => array('makanan' => 0, 'travel' => 0),
+                    'docCount'=>0,
+                    'prior' => array('makanan' => 0.5, 'travel' => 0.5),
+                );
+                
+            // objek bayes classifier
+            $bayes = new Bayesian($config);
+            // pelatihan model kategori makanan
+            
+            
+            $bayes->addToIndex();
+            
+            // pelatihan model kategori travel
+            $bayes->addToIndex();
+            
+            
+            
+            // Ambil data tweet bersih
+            $modelTweet = Tweet_model::model()->findAllByAttributes(array('label'=>'bersih'));
+            
+            
+            foreach ($modelTweet as $i=>$tweet):
+                $data[$i] = $tweet;
+            endforeach;
+            echo CJSON::encode($data);
+            Yii::app()->end();
+        }else
+            throw new CHttpException(400,
+                'Invalid request. Please do not repeat this request again.');
     }
     
     // Method membersihkan data twitter mentah dari URL

@@ -51,8 +51,8 @@ class tmhOAuth {
         'oauth_signature_method'     => 'HMAC-SHA1',
 
         // you probably don't want to change any of these curl values
-        'curl_connecttimeout'        => 30,
-        'curl_timeout'               => 10,
+        'curl_connecttimeout'        => 0,
+        'curl_timeout'               => 120,
 
         // for security this should always be set to 2.
         'curl_ssl_verifyhost'        => 2,
