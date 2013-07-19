@@ -46,7 +46,7 @@ $this->breadcrumbs=array(
             <div class="control-group">
                 <?php echo $form->labelEx($model, 'password', array('class'=>'control-label')); ?>
                 <div class="controls">
-                   <?php echo $form->textField($model,'password',array('class'=>'span8','maxlength'=>45)); ?>  
+                   <?php echo $form->passwordField($model,'password',array('class'=>'span8','maxlength'=>45)); ?>  
                    <?php echo $form->error($model,'password',array('class'=>'error required')); ?>                  
                 </div>
             </div>
