@@ -10,6 +10,6 @@ array('label'=>'Manage Opini_model','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Opini_model</h1>
+<h1>Create Opini Models</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
